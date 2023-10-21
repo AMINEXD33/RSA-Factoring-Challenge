@@ -17,7 +17,7 @@ file = None
 try:
     with open(sys.argv[1], "r") as file:
         for line in file:
-            num = int(line.strip())  # Assuming you want to convert each line to an integer
+            num = int(line.strip())
             get_p_q(num)
 except FileNotFoundError:
     print("File doesn't exist")
