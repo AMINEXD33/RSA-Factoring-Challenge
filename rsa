@@ -1,0 +1,35 @@
+#!/usr/bin/python3
+import math
+import sys
+
+def is_prime(n):
+    if (n <= 1): return False
+    if (n <= 3): return False
+    if (n % 2 == 0 or n % 3 == 0): return  False
+    for x in range(5, n+1, 6):
+        if (n % x == 0 or n % (x + 2) == 0): return False
+    return True
+
+def get_p_q(num: int):
+    limit = round(math.sqrt(num))
+    for p in range(2, limit + 1):
+        if (is_prime(q)):
+            if num % p == 0:
+                q = num // p
+                if (is_prime(q)):
+                    print(f"{num}={q}*{p}")
+                    return
+
+
+#check if file exists
+file = None
+try:
+    with open(sys.argv[1], "r") as file:
+        for line in file:
+            num = int(line.strip())
+            get_p_q(num)
+except FileNotFoundError:
+    print("File doesn't exist")
+except IndexError:
+    print("Usage: python script.py filename")
+
